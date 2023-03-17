@@ -7,6 +7,11 @@ public class GestionFin : MonoBehaviour
 {
     private GestionJeu _gestionJeu;
     private Player player;
+    float time;
+    float time2;
+    float tottime;
+
+
     private void Start()
     {
         _gestionJeu = FindObjectOfType<GestionJeu>();
@@ -15,16 +20,38 @@ public class GestionFin : MonoBehaviour
     private void OnCollisionEnter(Collision collision)
     {
         int indexScene = SceneManager.GetActiveScene().buildIndex;
+        if (indexScene == 0)
+        {
+            if (collision.gameObject.tag == "Player")
+            {
+            time =Time.time;
+            Debug.Log("Le temps du lv1 est de : " + time + "secondes");
+            }
+               
+        }
+        if (indexScene == 1)
+        {
+            if (collision.gameObject.tag == "Player")
+            {
+            time2 = time +Time.time;
+            Debug.Log("Le temps du lv2 est de : " + time2 + "secondes");
+            }
+                
+        }
         if (indexScene == 2)
         {
             if (collision.gameObject.tag == "Player")
             {
-                int erreurs = _gestionJeu.Pointage();
-                gameObject.GetComponent<MeshRenderer>().material.color = Color.white;
-                Debug.Log("Le temps total est de : " + Time.time + "secondes");
-                Debug.Log("vous avez accroche " + _gestionJeu.Pointage() + "obstacles");
-                float total = Time.time + erreurs;
-                Debug.Log("temps final : " + total);
+                /* int erreurs = _gestionJeu.Pointage();
+                 gameObject.GetComponent<MeshRenderer>().material.color = Color.white;
+                 Debug.Log("Le temps total est de : " + Time.time + "secondes");
+                 Debug.Log("vous avez accroche " + _gestionJeu.Pointage() + "obstacles");
+                 float total = Time.time + erreurs;
+                 Debug.Log("temps final : " + total);
+                 player.FinPartie();*/
+
+                tottime = time+time2+Time.time;
+                Debug.Log("temps final : " + tottime);
                 player.FinPartie();
             }
         }
