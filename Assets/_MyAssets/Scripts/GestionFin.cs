@@ -9,6 +9,7 @@ public class GestionFin : MonoBehaviour
     private Player player;
     float time;
     float time2;
+    float time3;
     float tottime;
 
 
@@ -33,7 +34,7 @@ public class GestionFin : MonoBehaviour
         {
             if (collision.gameObject.tag == "Player")
             {
-            time2 = time +Time.time;
+            time2 = Time.time;
             Debug.Log("Le temps du lv2 est de : " + time2 + "secondes");
             }
                 
@@ -49,9 +50,10 @@ public class GestionFin : MonoBehaviour
                  float total = Time.time + erreurs;
                  Debug.Log("temps final : " + total);
                  player.FinPartie();*/
-
-                tottime = time+time2+Time.time;
-                Debug.Log("temps final : " + tottime);
+                time3 = Time.time;
+                tottime = time+time2+time3;
+                Debug.Log("temps lvl1 : " + time + "" + time2 + "" + time3 +"temps finale" + tottime);
+                
                 player.FinPartie();
             }
         }

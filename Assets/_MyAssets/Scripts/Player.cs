@@ -6,6 +6,7 @@ public class Player : MonoBehaviour
 {
     //attributs
     [SerializeField] private float _vitesse = 100;
+    [SerializeField] private float _vitessederotation = 100;
     private Rigidbody _rb;
     // methode privee
     private void Start()
@@ -16,7 +17,6 @@ public class Player : MonoBehaviour
     }
     private void FixedUpdate()
     {
-
         MouvementsJoueur();
     }
 
@@ -36,6 +36,12 @@ public class Player : MonoBehaviour
         //transform.Translate(direction * Time.deltaTime * _vitesse); teleportation 
         //pousser
         _rb.velocity = direction * Time.fixedDeltaTime * _vitesse;
+
+        if (direction.normalized != Vector3.zero)
+        {
+            Quaternion regardevers = Quaternion.LookRotation(direction.normalized, Vector3.up);
+            transform.rotation = Quaternion.RotateTowards(transform.rotation, regardevers, _vitessederotation * Time.fixedDeltaTime);
+        }
     }
 
     public void FinPartie()
