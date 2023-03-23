@@ -24,24 +24,37 @@ public class ZoneOuv : MonoBehaviour
         if (Fermeture) FermePorte();
     }
 
-    
+
 
     private void OnTriggerEnter(Collider other)
-            {
-                if (other.gameObject.tag == "Player" )
-                {
-                    Ouverture = true;
-                    Fermeture = false;
-        }
-            }
-    private void OnTriggerExit(Collider other)
     {
         if (other.gameObject.tag == "Player")
         {
-            Ouverture = false;
-            Fermeture = true;
+            Ouverture = true;
+            Fermeture = false;
         }
     }
+    private void OnTriggerExit(Collider other)
+    
+    {
+        if (other.gameObject.tag == "Player")
+            if (Ouverture == false && Fermeture == true)
+            {
+                Ouverture = false;
+                Fermeture = true;
+                OuvrePorte();
+            }
+            else
+            {
+                FermePorte();
+            }
+
+    }
+
+
+
+
+
     private void OuvrePorte()
     {
         float movement = speed * Time.deltaTime;
