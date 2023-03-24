@@ -13,8 +13,9 @@ GameObject:
   - component: {fileID: 2926168645453127222}
   - component: {fileID: 2926168645453127223}
   - component: {fileID: 2926168645453127219}
+  - component: {fileID: -3701247342975839766}
   m_Layer: 0
-  m_Name: Cube
+  m_Name: Vev
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -114,3 +115,15 @@ MonoBehaviour:
   horizontal: 1
   speed: 3
   offset: 0
+--- !u!114 &-3701247342975839766
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2926168645453127209}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6f1d3522e1990f94b975fd4afec64859, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

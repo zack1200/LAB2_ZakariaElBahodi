@@ -5,7 +5,7 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     //attributs
-    [SerializeField] private float _vitesse = 100;
+    [SerializeField] private float _vitesse = 700f;
     [SerializeField] private float _vitessederotation = 100;
     private Rigidbody _rb;
     // methode privee
@@ -46,6 +46,6 @@ public class Player : MonoBehaviour
 
     public void FinPartie()
     {
-        this.gameObject.SetActive(false);
+        gameObject.SetActive(false);
     }
 }
