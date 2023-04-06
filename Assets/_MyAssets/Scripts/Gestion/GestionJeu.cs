@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class GestionJeu : MonoBehaviour
@@ -8,10 +9,14 @@ public class GestionJeu : MonoBehaviour
     private int _pointage = 0;  
      
     private float[] _tempsNiveau =new float[3];
-    private float[] _accrochageNiveau =new float [3] ;  
-   
-    
-   
+    private float[] _accrochageNiveau =new float [3] ;
+    [SerializeField] private TMP_Text _txtAccrochages = default;
+    [SerializeField] private TMP_Text _txtTps = default;
+    [SerializeField] private GameObject _menupause = default;
+    private bool _enpause = false;
+
+
+
 
     private void Awake()
     {
@@ -41,9 +46,28 @@ public class GestionJeu : MonoBehaviour
         Debug.Log("");
     }
 
-    
+    private void Update()
+    {
+        _txtTps.text = "Temps :" + Time.time.ToString("f2");
+        if (Input.GetKeyDown(KeyCode.Escape) && !_enpause)
+        {
+            _menupause.SetActive(true);
+            Time.timeScale = 0;
+            _enpause
+                = true;
+        }
+        else if (Input.GetKeyDown(KeyCode.Escape) && _enpause)
+        {
+            _menupause.SetActive(false);
+            Time.timeScale = 1.0f;
+            _enpause
+                = false;
+        }
+    }
 
-    public void AugmenterPointage()
+
+
+        public void AugmenterPointage()
     {
         _pointage++;
     }
