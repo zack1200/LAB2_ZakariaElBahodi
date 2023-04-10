@@ -1,13 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
+using UnityEditorInternal;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class GestionScene : MonoBehaviour
 {
+    
 
-    [SerializeField] private GameObject _Inst = default;
     public void ChangerSceneSuivante()
     {
         int noScene = SceneManager.GetActiveScene().buildIndex; // Récupère l'index de la scène en cours
@@ -23,14 +24,7 @@ public class GestionScene : MonoBehaviour
     {
         SceneManager.LoadScene(0);
     }
-    public void Inst()
-    {        
-            _Inst.SetActive(true);        
-           
-    }
-    public void Back()
-    {
-            _Inst.SetActive(false);
-    }
+   
+    
 
 }

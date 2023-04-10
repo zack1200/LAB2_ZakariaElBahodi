@@ -450,7 +450,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e792d4ed158cec74a992f0bce0cfe22a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _Inst: {fileID: 1040931619}
 --- !u!4 &375864306
 Transform:
   m_ObjectHideFlags: 0
@@ -1480,9 +1479,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7860048945959f24392b7a150dc427fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _txtAccrochages: {fileID: 600200303}
-  _txtTps: {fileID: 699712262}
-  _menupause: {fileID: 1040931619}
 --- !u!4 &1010599328
 Transform:
   m_ObjectHideFlags: 0
@@ -2588,6 +2584,7 @@ GameObject:
   - component: {fileID: 1720804256}
   - component: {fileID: 1720804255}
   - component: {fileID: 1720804254}
+  - component: {fileID: 1720804257}
   m_Layer: 0
   m_Name: Canvas
   m_TagString: Untagged
@@ -2681,6 +2678,21 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
+--- !u!114 &1720804257
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1720804252}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6182d7d9828ecbc4d92823924bbe2b13, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _txtAccrochages: {fileID: 600200303}
+  _txtTemps: {fileID: 699712262}
+  _menuPause: {fileID: 1040931619}
 --- !u!4 &1727968355 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5659752252800226922, guid: bffc18d55d239a842b8ba848967d87a4, type: 3}
@@ -2768,7 +2780,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6613538833252524320, guid: a1f1fdb9aec2ae749871e106bcca7e99, type: 3}
       propertyPath: m_Name
-      value: Instructions
+      value: Pause
       objectReference: {fileID: 0}
     - target: {fileID: 6613538833252524320, guid: a1f1fdb9aec2ae749871e106bcca7e99, type: 3}
       propertyPath: m_IsActive

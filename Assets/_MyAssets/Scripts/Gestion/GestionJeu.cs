@@ -2,18 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GestionJeu : MonoBehaviour
 {
-   
+
     private int _pointage = 0;  
-     
-    private float[] _tempsNiveau =new float[3];
-    private float[] _accrochageNiveau =new float [3] ;
-    [SerializeField] private TMP_Text _txtAccrochages = default;
-    [SerializeField] private TMP_Text _txtTps = default;
-    [SerializeField] private GameObject _menupause = default;
-    private bool _enpause = false;
+    private float _tempsFinal = 0;
+    private float _tempsDepart = 0;
+
 
 
 
@@ -34,78 +31,56 @@ public class GestionJeu : MonoBehaviour
 
     private void Start()
     {
-        InstructionsDepart();  
+        _tempsDepart = Time.time;
     }
 
-    
-    private static void InstructionsDepart()
-    {
-        Debug.Log("*** Course à obstacles");
-        Debug.Log("Le but du jeu est d'atteindre la zone d'arrivée le plus rapidement possible");
-        Debug.Log("Chaque contact avec un obstable entraînera une pénalité");
-        Debug.Log("");
-    }
 
     private void Update()
     {
-        _txtTps.text = "Temps :" + Time.time.ToString("f2");
-        if (Input.GetKeyDown(KeyCode.Escape) && !_enpause)
+        if (SceneManager.GetActiveScene().buildIndex == 4 || SceneManager.GetActiveScene().buildIndex == 0)
         {
-            _menupause.SetActive(true);
-            Time.timeScale = 0;
-            _enpause
-                = true;
-        }
-        else if (Input.GetKeyDown(KeyCode.Escape) && _enpause)
-        {
-            _menupause.SetActive(false);
-            Time.timeScale = 1.0f;
-            _enpause
-                = false;
+            Destroy(gameObject);
         }
     }
 
+    // ***** Méthodes publiques ******
 
-
-        public void AugmenterPointage()
+    /*
+     * Méthode publique qui permet d'augmenter le pointage de 1
+     */
+    public void AugmenterPointage()
     {
         _pointage++;
+        UIManager uiManager = FindObjectOfType<UIManager>();
+        uiManager.ChangerPointage(_pointage);
     }
 
-  
+    // Accesseur qui retourne la valeur de l'attribut pointage
     public int GetPointage()
     {
         return _pointage;
     }
 
-   
-    public float GetTempsNiv(int index)
+    public float GetTempsDepart()
     {
-        return _tempsNiveau[index];
+        return _tempsDepart;
     }
 
-   
-    public float GetAccrochagesNiv(int index)
-    {
-        return _accrochageNiveau[index];
-    }
-   
 
-   
-    public void SetNiveau1(int index,int accrochages, float tempsNiv1)
+    public void SetTempsFinal(float p_tempFinal)
     {
-        _accrochageNiveau[index] = accrochages;
-        _tempsNiveau[index] = tempsNiv1;
+        _tempsFinal = p_tempFinal - _tempsDepart;
     }
-    public void SetNiveau2(int index, int accrochages, float tempsNiv2)
+
+    public float GetTempsFinal()
     {
-        _accrochageNiveau[index] = accrochages;
-        _tempsNiveau[index] = tempsNiv2;
+        return _tempsFinal;
     }
-    public void SetNiveau3(int index, int accrochages, float tempsNiv3)
-    {
-        _accrochageNiveau[index] = accrochages;
-        _tempsNiveau[index] = tempsNiv3;
-    }
+
+
+
+
+
+
 
 }
