@@ -9,7 +9,7 @@ public class UIManager : MonoBehaviour
     [SerializeField] private TMP_Text _txtAccrochages = default;
     [SerializeField] private TMP_Text _txtTemps = default;
     [SerializeField] private GameObject _menuPause = default;
-    //[SerializeField] private GameObject _Inst = default;
+    [SerializeField] private GameObject _Inst = default;
     private bool _enPause;
     private GestionJeu _gestionJeu;
 
@@ -55,7 +55,7 @@ public class UIManager : MonoBehaviour
         Time.timeScale = 1;
         _enPause = false;
     }
-    /*public void Inst()
+    public void Inst()
     {
         _Inst.SetActive(true);
 
@@ -63,5 +63,5 @@ public class UIManager : MonoBehaviour
     public void Back()
     {
         _Inst.SetActive(false);
-    }*/
+    }
 }

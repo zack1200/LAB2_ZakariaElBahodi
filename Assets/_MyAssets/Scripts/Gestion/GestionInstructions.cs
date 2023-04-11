@@ -4,15 +4,36 @@ using UnityEngine;
 
 public class GestionInstructions : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField] public GameObject Inst;
+    /* [SerializeField] private GameObject _Instruction = default;
+     bool _InstActive ;
+
+     private void GestionInst()
+     {
+         if (Input.GetKeyDown(KeyCode.Escape) && !_InstActive)
+         {
+             _Instruction.SetActive(true);
+
+             _InstActive = true;
+         }
+         else if (Input.GetKeyDown(KeyCode.Escape) && _InstActive)
+         {
+             EnleverInst();
+         }
+     }
+     public void EnleverInst()
+     {
+         _Instruction.SetActive(false);
+
+         _InstActive = false;
+     }*/
+    public void Instruction()
     {
+        Inst.SetActive(true);
         
     }
-
-    // Update is called once per frame
-    void Update()
+    public void FinInstruction()
     {
-        
+        Inst.SetActive(false);
     }
 }

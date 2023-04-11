@@ -8,6 +8,7 @@ public class Player : MonoBehaviour
     [SerializeField] private float _vitesse = 700f;
     [SerializeField] private float _vitessederotation = 100;
     private Rigidbody _rb;
+    bool _active = false;
     // methode privee
     private void Start()
     {
@@ -25,10 +26,20 @@ public class Player : MonoBehaviour
     {
         MouvementsJoueur();
     }
+    //public bool Getactive()
+    //{
+    //    return _active;
+    //}
 
     private void MouvementsJoueur()
     {
-        
+        //if(_active == false)
+        //{
+        //    if (Input.GetAxis("Horizontal") > 0)
+        //    {
+        //        _active = true;
+        //    }
+        //}   
         float positionX = Input.GetAxis("Horizontal");
         float positionZ = Input.GetAxis("Vertical");
         Vector3 direction = new Vector3(positionX, 0f, positionZ);

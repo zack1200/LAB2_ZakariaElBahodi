@@ -7,7 +7,8 @@ using UnityEngine.SceneManagement;
 
 public class GestionScene : MonoBehaviour
 {
-    
+    //public g;
+   // [SerializeField] public GameObject Inst;
 
     public void ChangerSceneSuivante()
     {
@@ -24,7 +25,12 @@ public class GestionScene : MonoBehaviour
     {
         SceneManager.LoadScene(0);
     }
-   
+    /*public void ChargerInstruction()
+    {
+        Instruction.SetActive(true);
+    }*/
     
+
+
 
 }

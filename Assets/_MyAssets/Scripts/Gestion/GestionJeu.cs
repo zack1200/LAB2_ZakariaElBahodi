@@ -31,12 +31,16 @@ public class GestionJeu : MonoBehaviour
 
     private void Start()
     {
-        _tempsDepart = Time.time;
+         _tempsDepart = Time.time;
     }
 
 
     private void Update()
     {
+      //  if( FindObjectOfType<Player>().Getactive() == true )
+     //   {
+           
+     //   }
         if (SceneManager.GetActiveScene().buildIndex == 4 || SceneManager.GetActiveScene().buildIndex == 0)
         {
             Destroy(gameObject);
